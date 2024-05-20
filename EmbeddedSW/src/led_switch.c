@@ -693,14 +693,14 @@ int ledpush(void){
     else {return 0;}
 }
 
-led_t led1 = {GPIOG, (0x01 << 24), (0x03 << 24), (0x01 << 24), (0x01 << 28), (0x01 << 12)};
-led_t led2 = {GPIOE, (0x01 << 10), (0x03 << 10), (0x01 << 10), (0x02 << 20), (0x02 << 4)};
-led_t led3 = {GPIOE, (0x01 << 8), (0x03 << 8), (0x01 << 8), (0x01 << 20), (0x01 << 4)};
-led_t led4 = {GPIOG, (0x01 << 20), (0x03 << 20), (0x01 << 20), (0x01 << 26), (0x01 << 10)};
+led_t led1 = {GPIOG, (0x01 << 24),(0x03 << 24), (0x01 << 24), (0x01 << (12 + 16)), (0x01 << 12)};
+led_t led2 = {GPIOE, (0x01 << 10),(0x03 << 10), (0x01 << 10), (0x01 << (5 + 16)), (0x02 << 4)};
+led_t led3 = {GPIOE, (0x01 << 8),(0x03 << 8), (0x01 << 8), (0x01 << (4 + 16)), (0x01 << 4)};
+led_t led4 = {GPIOG, (0x01 << 20),(0x03 << 20), (0x01 << 20), (0x01 << (10 + 16)), (0x01 << 10)};
 
 void LedInit(led_t *led)
 {
-    *((V_UINT32 *)(AHB1ENR)) |= 0x01 << 4 | 0x01 << 6;
+    *((V_UINT32 *)(AHB1ENR)) |= 0x01 << G | 0x01 << E;
 
     *((V_UINT32 *)(led->port + MODER)) |= led->mode;
     *((V_UINT32 *)(led->port + OSPEEDR)) |= led->speed;
@@ -710,12 +710,14 @@ void LedInit(led_t *led)
 
 // Switch functions and settings
 
-btn_t btn1 = {GPIOG, (0x03 << 6), (0x01 << 3)};
-btn_t btn2 = {GPIOC, (0x03 << 24), (0x01 << 12)};
+// PG3
+btn_t btn1 = {GPIOG, (0x03 << 2 * 3), (0x01 << 3)};
+// PC12
+btn_t btn2 = {GPIOC, (0x03 << 2 * 12), (0x01 << 12)};
 
 void BtnInit(btn_t *btn)
 {
-    *((V_UINT32 *)(AHB1ENR)) |= 0x01 << 2 | 0x01 << 6;
+    *((V_UINT32 *)(AHB1ENR)) |= 0x01 << C | 0x01 << G;
 
     *((V_UINT32 *)(btn->port + MODER)) &= ~(btn->data);
     *((V_UINT32 *)(btn->port + OSPEEDR)) &= ~(btn->data);
@@ -725,8 +727,7 @@ void BtnInit(btn_t *btn)
 void delay(unsigned int ms)
 {
     volatile int time;
-    for (time = 0; time <= ms * (oneSec / 1000); time++)
-        ;
+    for (time = 0; time <= ms * (oneSec / 1000); time++);
 }
 
 int BtnCheck()
@@ -738,6 +739,4 @@ int BtnCheck()
         status += 2;
     return status;
 }
-
-
 

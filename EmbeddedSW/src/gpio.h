@@ -81,4 +81,6 @@ void segmenton(int num);
 void segmentoff(int num);
 
 void switch_led(void);
+
+void segment_7447(unsigned int num);
 #endif /* GPIO_H_ */

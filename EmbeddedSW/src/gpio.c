@@ -30,22 +30,20 @@ gpio_t ARD_D15 = {(0x01 << B), GPIOB, 8, 0};
 void set_gpio(gpio_t *GPIO, int _mode)
 {
     *((V_UINT32 *)(AHB1ENR)) |= GPIO->clock;
-    if (_mode == 0)
-    {
+    if (_mode == 0){
         // input
         *((V_UINT32 *)(GPIO->port + MODER)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + PUPDR)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + OSPEEDR)) &= ~(0x03 << 2 * GPIO->pin);
     }
-    else
-    {
+    else{
         // output
     	*((V_UINT32*)(GPIO->port + MODER)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + MODER)) |= (0x01 << 2 * GPIO->pin);
 
         *((V_UINT32 *)(GPIO->port + PUPDR)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + PUPDR)) |= (0x01 << 2 * GPIO->pin);
-        
+
         *((V_UINT32 *)(GPIO->port + OSPEEDR)) |= (0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + BSRR)) |= (0x01 << GPIO->pin);
     }
@@ -255,4 +253,18 @@ void switch_led(){
     if(!(*((V_UINT32*)(sw4->port + IDR)) & (0x01 << sw4->pin))){
         Signal(&ARD_D3,0);
     }
+}
+
+void segment_7447(unsigned int num){
+    	set_gpio(&ARD_D0,output);	// A
+		set_gpio(&ARD_D1,output);   // B
+		set_gpio(&ARD_D2,output);	// C
+		set_gpio(&ARD_D3,output);   // D
+		set_gpio(&ARD_D4,output);	// LT
+		set_gpio(&ARD_D5,output);   // BI
+
+		gpio_t* array[4] = {&ARD_D0,&ARD_D1,&ARD_D2,&ARD_D3};
+		for(int j=0;j<4;j++){
+			Signal(array[j],(num >> j) & 1);    // 항상 0, 1이 출력되게 만들어놨으므로 & 1을 해줘야함
+		}
 }
