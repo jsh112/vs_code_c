@@ -31,4 +31,4 @@ void BtnInit(btn_t *btn);
 void delay(unsigned int ms);
 int BtnCheck(void);
 
-#endif
+#endif /* LED_SWITCH_H_ */

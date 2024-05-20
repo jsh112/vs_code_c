@@ -33,9 +33,6 @@ void set_gpio(gpio_t *GPIO, int _mode)
     if (_mode == 0)
     {
         // input
-        // clock
-        // MODER 00. PUPD 00
-        // OSPEED 00
         *((V_UINT32 *)(GPIO->port + MODER)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + PUPDR)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + OSPEEDR)) &= ~(0x03 << 2 * GPIO->pin);
@@ -48,6 +45,7 @@ void set_gpio(gpio_t *GPIO, int _mode)
 
         *((V_UINT32 *)(GPIO->port + PUPDR)) &= ~(0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + PUPDR)) |= (0x01 << 2 * GPIO->pin);
+        
         *((V_UINT32 *)(GPIO->port + OSPEEDR)) |= (0x03 << 2 * GPIO->pin);
         *((V_UINT32 *)(GPIO->port + BSRR)) |= (0x01 << GPIO->pin);
     }

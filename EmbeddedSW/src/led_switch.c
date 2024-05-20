@@ -258,59 +258,6 @@ void MyApp_0411(){
     }
 }*/
 
-void userLedInit(unsigned char No){
-    switch(No){
-        case 1:
-            // AHB1ENR
-            *((V_UINT32*)(AHB1ENR)) |= 0x01 << 6;
-            // MODER
-            *((V_UINT32*)(GPIOG | MODER)) |= 0x01 << 2 * 12;
-            // OSPEEDR
-            *((V_UINT32*)(GPIOG | OSPEEDR)) |= 0x03 << 2 * 12;
-            // PUPDR
-            *((V_UINT32*)(GPIOG | PUPDR)) |= 0x01 << 2 * 12;
-            // set BSRR
-            *((V_UINT32*)(GPIOG | BSRR)) |= 0x01 << 12;
-            break;
-        case 2:
-            // AHB1ENR
-            *((V_UINT32*)(AHB1ENR)) |= 0x01 << 4;
-            // MODER
-            *((V_UINT32*)(GPIOE | MODER)) |= 0x01 << 2 * 5;
-            // OSPEEDR
-            *((V_UINT32*)(GPIOE | OSPEEDR)) |= 0x03 << 2 * 5;
-            // PUPDR
-            *((V_UINT32*)(GPIOE | PUPDR)) |= 0x01 << 2 * 5;
-            // set BSRR
-            *((V_UINT32*)(GPIOE | BSRR)) |= 0x02 << 4;
-            break;
-        case 3:
-            // AHB1ENR
-            *((V_UINT32*)(AHB1ENR)) |= 0x01 << 4;
-            // MODER
-            *((V_UINT32*)(GPIOE | MODER)) |= 0x01 << 2 * 4;
-            // OSPEEDR
-            *((V_UINT32*)(GPIOE | OSPEEDR)) |= 0x03 << 2 * 4;
-            // PUPDR
-            *((V_UINT32*)(GPIOE | PUPDR)) |= 0x01 << 2 * 4;
-            // set BSRR
-            *((V_UINT32*)(GPIOE | BSRR)) |= 0x01 << 4;
-            break;
-        case 4:
-            // AHB1ENR
-            *((V_UINT32*)(AHB1ENR)) |= 0x01 << 6;
-            // MODER
-            *((V_UINT32*)(GPIOG | MODER)) |= 0x01 << 2 * 10;
-            // OSPEEDR
-            *((V_UINT32*)(GPIOG | OSPEEDR)) |= 0x03 << 2 * 10;
-            // PUPDR
-            *((V_UINT32*)(GPIOG | PUPDR)) |= 0x01 << 2 * 10;
-            // set BSRR
-            *((V_UINT32*)(GPIOG | BSRR)) |= 0x01 << 10;
-            break;
-    }
-}
-
 void ledTop(unsigned int delay)
 {
     int no = 4;
@@ -497,27 +444,6 @@ void myDelay(unsigned char delay){
     for(i=0;i<=delay * (oneSec/1000);i++);
 }
 
-void InitGPIO(){
-    // clock enable
-    *((V_UINT32*)(AHB1ENR)) |= 0x01 << 4 | 0x01 << 6;
-
-    // MODER
-    *((V_UINT32*)(GPIOG | MODER)) |= 0x01 << 2 * 12 | 0x01 << 2 * 10;
-    *((V_UINT32*)(GPIOE | MODER)) |= 0x01 << 2 * 5 | 0x01 << 2 * 4;
-
-    // OSPEEDR
-    *((V_UINT32*)(GPIOG | OSPEEDR)) |= 0x03 << 2 * 12 | 0x03 << 2 * 10;
-    *((V_UINT32*)(GPIOE | OSPEEDR)) |= 0x03 << 2 * 5 | 0x03 << 2 * 4;
-
-    // PUPDR
-    *((V_UINT32*)(GPIOG | PUPDR)) |= 0x01 << 2 * 12 | 0x01 << 2 * 10;
-    *((V_UINT32*)(GPIOE | PUPDR)) |= 0x01 << 2 * 5 | 0x01 << 2 * 4;
-
-    // BSRR
-    *((V_UINT32*)(GPIOG | BSRR)) |= 0x01 << 2 * 14 | 0x01 << 2 * 13;
-    *((V_UINT32*)(GPIOE | BSRR)) |= 0x02 << 2 * 10 | 0x01 << 2 * 10;
-}
-
 /*unsigned char MoveLED(unsigned char Dir, unsigned char Start, unsigned char Count, unsigned char Blink)
 {
     unsigned char d;
@@ -683,86 +609,6 @@ void JustOneLED(unsigned int LED1,unsigned int LED2,unsigned int LED3,unsigned i
             if(a[j].cnt == max) outSignal(a[j].pin,0);
             else outSignal(a[j].pin,1);
         }
-    }
-}
-
-void my_switch1(void){
-    *((V_UINT32*)(AHB1ENR)) |= 0x01 << 2 | 0x01 << 4 | 0x01 << 6;
-    // LED Input
-    *((V_UINT32*)(GPIOC | MODER)) &= ~(0x03 << 2 * 12);
-    // SPEED low
-    *((V_UINT32*)(GPIOC | OSPEEDR)) &= ~(0x03 << 2 * 12);
-    // PUPDR
-    *((V_UINT32*)(GPIOC | PUPDR)) &= ~(0x03 << 2 * 12);
-
-    // pg12 set
-    *((V_UINT32*)(GPIOG | MODER)) |= 0x01 << 2 * 12;
-    *((V_UINT32*)(GPIOG | OSPEEDR)) |= 0x03 << 2 * 12;
-    *((V_UINT32*)(GPIOG | PUPDR)) |= 0x01 << 2 * 12;
-
-    while(1){
-        if(*((V_UINT32*)(GPIOC | IDR)) & (0x01 << 12)) *((V_UINT32*)(GPIOG | BSRR)) |= 0x01 << 2 * 14;
-        else *((V_UINT32*)(GPIOG | BSRR)) |= 0x01 << 2 * 6;
-    }
-}
-
-/*int BTN_Check(int No){
-    if(No == 1){
-            if(*((V_UINT32*)(GPIOG | IDR)) & (0x01 << 3)){return 1;}
-            else return 0;
-    }
-    if(No == 2){
-            if(*((V_UINT32*)(GPIOC | IDR)) & (0x01 << 12)){return 1;}
-            else return 0;
-    }
-}*/
-
-
-
-
-void Init(){
-    // Clock C,E,G Enable
-    *((V_UINT32*)(AHB1ENR)) |= 0x01 << 2 | 0x01 << 4 | 0x01 << 6;
-
-    // Switch Enable
-    // Switch 1 : PC12
-    // MODER : INPUT(00), OSPEEDR : LOW SPEED(00), PUPDR : No pull-up, No pull-down(00)
-    *((V_UINT32*)(GPIOC | MODER)) &= ~(0x03 << 2 * 12);
-    *((V_UINT32*)(GPIOC | OSPEEDR)) &= ~(0x03 << 2 * 12);
-    // *((V_UINT32*)(GPIOC | PUPDR)) &= ~(0x03 << 2 * 12);
-
-    // Switch 2 : PG3
-    *((V_UINT32*)(GPIOG | MODER)) &= ~(0x03 << 2 * 3);
-    *((V_UINT32*)(GPIOG | OSPEEDR)) &= ~(0x03 << 2 * 3);
-    // *((V_UINT32*)(GPIOG | PUPDR)) &= ~(0x03 << 2 * 3);
-
-    // led enable
-    *((V_UINT32*) (GPIOG | MODER)) |= 0x01 << 2 * 12 | 0x01 << 2 * 10;
-    // OSPEEDR
-    *((V_UINT32*) (GPIOG | OSPEEDR)) |= 0x03 << 2 * 12 | 0x03 << 2 * 10;
-    // PUPDR
-    *((V_UINT32*) (GPIOG | PUPDR)) |= 0x01 << 2 * 12 | 0x03 << 2 * 10;
-
-    *((V_UINT32*) (GPIOE | MODER)) |= 0x01 << 2 * 5 | 0x01 << 2 * 4;
-    //
-    *((V_UINT32*) (GPIOE | OSPEEDR)) |= 0x03 << 2 * 5 | 0x03 << 2 * 4;
-    // PUPDR
-    *((V_UINT32*) (GPIOE | PUPDR)) |= 0x01 << 2 * 5 | 0x01 << 2 * 4;
-
-    *((V_UINT32*) (GPIOG | BSRR)) |= 0x01 << 2 * 6 | 0x01 << 2 * 5;
-    *((V_UINT32*) (GPIOE | BSRR)) |= 0x02 << 2 * 2 | 0x01 << 2 * 2;
-}
-
-int BTN_Check(unsigned int No){
-    switch(No){
-        case 1:
-            if(*((V_UINT32*)(GPIOG | IDR)) & (0x01 << 3)) return 1;
-            else return 0;
-            break;
-        case 2:
-            if(*((V_UINT32*)(GPIOC | IDR)) & (0x01 << 12)) return 1;
-            else return 0;
-            break;
     }
 }
 
