@@ -26,6 +26,7 @@ DWORD WINAPI MyThread_1(LPVOID arg){
     for(;;){
         WaitForSingleObject(hMutex,INFINITE);
         g_var = 1;
+        Sleep(1);
         printf("Thread 1 : g_var = %d\n",g_var);
         ReleaseMutex(hMutex);
     }
@@ -36,6 +37,7 @@ DWORD WINAPI MyThread_2(LPVOID arg){
     for(;;){
         WaitForSingleObject(hMutex,INFINITE);
         g_var = 2;
+        Sleep(1);
         printf("Thread 2 : g_var = %d\n",g_var);
         ReleaseMutex(hMutex);
     }
