@@ -1,11 +1,9 @@
 #include <stdio.h>
 
-#define p 4
-#define r 3
+#define p 4 // number of process
+#define r 3 // number of resource type
 
-int main()
-{
-
+int main(){
     int available[r] = {11,5,4};
     int work[r] = {0};
     int max[p][r] = {{7,5,3}, {3, 2, 2}, {9, 0, 4}, {2, 2, 2}};
