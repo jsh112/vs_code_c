@@ -17,7 +17,7 @@ int main(){
             need[i][j] = max[i][j] - allocate[i][j];
         }
     }
-    for (int i = 0; i < 3; i++)work[i] = available[i];
+    for (int i = 0; i < r; i++)work[i] = available[i];
 
     for (int i = 0; i < p; i++){
         int cnt = 0;
@@ -26,7 +26,7 @@ int main(){
                 if (need[i][j] <= work[j])cnt++;
             }
         }
-        if (cnt == 3){
+        if (cnt == r){
             finished[i] = 1;
             for (int j = 0; j < r; j++)work[j] = work[j] + allocate[i][j]; 
             printf("Process %d\n", i + 1);
