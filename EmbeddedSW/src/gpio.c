@@ -18,6 +18,10 @@ gpio_t ARD_D13 = {(0x01 << A), GPIOA, 9, 0};
 gpio_t ARD_D14 = {(0x01 << B), GPIOB, 7, 0};
 gpio_t ARD_D15 = {(0x01 << B), GPIOB, 8, 0};
 
+gpio_t ARD_A1  = {(0x01 << F), GPIOF, 10};
+gpio_t ARD_A2  = {(0x01 << F), GPIOF, 9};
+gpio_t ARD_A3  = {(0x01 << F), GPIOF, 8};
+
 #define a ARD_D0
 #define b ARD_D1
 #define c ARD_D2
