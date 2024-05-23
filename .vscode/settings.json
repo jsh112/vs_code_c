@@ -61,5 +61,6 @@
     "pthread.h": "c",
     "stdlib.h": "c",
     "iostream": "cpp"
-  }
+  },
+  "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
