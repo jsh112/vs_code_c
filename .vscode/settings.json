@@ -60,7 +60,9 @@
     "stdio.h": "c",
     "pthread.h": "c",
     "stdlib.h": "c",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "timer_interrupt.h": "c",
+    "led_switch.h": "c"
   },
   "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
