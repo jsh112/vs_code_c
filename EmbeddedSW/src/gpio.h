@@ -23,12 +23,36 @@ void MyApp();
 void ControlLED(unsigned char No, unsigned char status);
 
 #define V_UINT32 volatile unsigned int
+
+// Base Address
 #define GPIOA 0x40020000U
 #define GPIOB 0x40020400U
 #define GPIOC 0x40020800U
 #define GPIOE 0x40021000U
 #define GPIOF 0x40021400U
 #define GPIOG 0x40021800U
+#define APB2ENR 0x40023844U
+#define SYSCFG 0x40013800U
+#define EXTI 0x40013C00U
+#define TIM1 0x40010000U
+
+// Interrupt offset
+#define IMR 0x00U
+#define FTSR 0x0CU
+#define EXTICR1 0x08U // EXTI 0~3
+#define EXTICR2 0x0CU // EXTI 4~7
+#define EXTICR3 0x10U // EXTI 8~11
+#define EXTICR4 0x14U // EXTI 12~15
+#define PR 0x14U
+
+// Timer offset
+#define PSC 0x28U
+#define ARR 0x2CU
+#define DIER 0x0CU
+#define CR1 0x00U
+#define SR 0x10U
+
+// GPIO offset
 #define MODER 0x00U         // 00 입력 모드, 01 출력 모드
 #define OSPEEDR 0x08U       // 11 매우 높은 속도
 #define PUPDR 0x0CU        // 풀업 01
