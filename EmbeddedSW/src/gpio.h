@@ -19,7 +19,6 @@ enum shift{
 static void SystemClock_Config(void);
 void hwInit(void);
 void MyDelay(unsigned int n);
-void MyApp();
 void ControlLED(unsigned char No, unsigned char status);
 
 #define V_UINT32 volatile unsigned int
