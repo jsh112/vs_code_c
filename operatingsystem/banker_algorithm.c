@@ -5,12 +5,19 @@
 
 int main()
 {
-    int available[r] = {10, 5, 7};
+    int available[r] = {3, 3, 2};
     int work[r] = {0};
     int max[p][r] = {{7, 5, 3}, {3, 2, 2}, {9, 0, 2}, {2, 2, 2}, {4, 3, 3}};
     int allocate[p][r] = {{0, 1, 0}, {2, 0, 0}, {3, 0, 2}, {2, 2, 2}, {0, 0, 2}};
     int need[p][r] = {0};
     int finished[p] = {0};
+
+    for (int j = 0; j < r; j++){
+        int sum = 0;
+        for (int i = 0; i < p; i++){sum += allocate[i][j];}
+        available[j] += sum;
+    }
+    
 
     for (int j = 0; j < r; j++){
         for (int i = 0; i < p; i++){
