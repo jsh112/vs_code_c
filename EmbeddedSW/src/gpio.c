@@ -1,26 +1,26 @@
 #include "gpio.h"
 
-gpio_t ARD_D0 = {(0x01 << C), GPIOC, 7, 0};
-gpio_t ARD_D1 = {(0x01 << C), GPIOC, 6, 0};
-gpio_t ARD_D2 = {(0x01 << G), GPIOG, 6, 0};
-gpio_t ARD_D3 = {(0x01 << B), GPIOB, 4, 0};
-gpio_t ARD_D4 = {(0x01 << G), GPIOG, 7, 0};
-gpio_t ARD_D5 = {(0x01 << A), GPIOA, 8, 0};
-gpio_t ARD_D6 = {(0x01 << A), GPIOA, 2, 0};
-gpio_t ARD_D7 = {(0x01 << C), GPIOC, 1, 0};
+gpio_t ARD_D0 = {(0x01 << C), GPIOC, 7}; // PC7
+gpio_t ARD_D1 = {(0x01 << C), GPIOC, 6}; // PC6
+gpio_t ARD_D2 = {(0x01 << G), GPIOG, 6}; // PG6
+gpio_t ARD_D3 = {(0x01 << B), GPIOB, 4}; // PB4
+gpio_t ARD_D4 = {(0x01 << G), GPIOG, 7}; // PG7
+gpio_t ARD_D5 = {(0x01 << A), GPIOA, 8}; // PA8
+gpio_t ARD_D6 = {(0x01 << A), GPIOA, 2}; // PA2
+gpio_t ARD_D7 = {(0x01 << C), GPIOC, 1}; // PC1
 
-gpio_t ARD_D8 = {(0x01 << C), GPIOC, 2, 0};
-gpio_t ARD_D9 = {(0x01 << A), GPIOA, 3, 0};
-gpio_t ARD_D10 = {(0x01 << B), GPIOB, 9, 0};
-gpio_t ARD_D11 = {(0x01 << B), GPIOB, 15, 0};
-gpio_t ARD_D12 = {(0x01 << B), GPIOB, 14, 0};
-gpio_t ARD_D13 = {(0x01 << A), GPIOA, 9, 0};
-gpio_t ARD_D14 = {(0x01 << B), GPIOB, 7, 0};
-gpio_t ARD_D15 = {(0x01 << B), GPIOB, 8, 0};
+gpio_t ARD_D8 = {(0x01 << C), GPIOC, 2};     // PC2
+gpio_t ARD_D9 = {(0x01 << A), GPIOA, 3};     // PA3
+gpio_t ARD_D10 = {(0x01 << B), GPIOB, 9};    // PB9
+gpio_t ARD_D11 = {(0x01 << B), GPIOB, 15};   // PB15
+gpio_t ARD_D12 = {(0x01 << B), GPIOB, 14};   // PB14
+gpio_t ARD_D13 = {(0x01 << A), GPIOA, 9};    // PA9
+gpio_t ARD_D14 = {(0x01 << B), GPIOB, 7};    // PB7
+gpio_t ARD_D15 = {(0x01 << B), GPIOB, 8};    // PB8
 
-gpio_t ARD_A1  = {(0x01 << F), GPIOF, 10};
-gpio_t ARD_A2  = {(0x01 << F), GPIOF, 9};
-gpio_t ARD_A3  = {(0x01 << F), GPIOF, 8};
+gpio_t ARD_A1  = {(0x01 << F), GPIOF, 10};   // PF10
+gpio_t ARD_A2  = {(0x01 << F), GPIOF, 9};    // PF9
+gpio_t ARD_A3  = {(0x01 << F), GPIOF, 8};    // PF8
 
 #define a ARD_D0
 #define b ARD_D1
@@ -264,8 +264,6 @@ void segment_7447(unsigned int num){
 		set_gpio(&ARD_D1,output);   // B
 		set_gpio(&ARD_D2,output);	// C
 		set_gpio(&ARD_D3,output);   // D
-		set_gpio(&ARD_D4,output);	// LT
-		set_gpio(&ARD_D5,output);   // BI
 
 		gpio_t* array[4] = {&ARD_D0,&ARD_D1,&ARD_D2,&ARD_D3};
 		for(int j=0;j<4;j++){
