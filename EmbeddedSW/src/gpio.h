@@ -86,14 +86,6 @@ extern gpio_t ARD_D13;
 extern gpio_t ARD_D14;
 extern gpio_t ARD_D15;
 
-#define a ARD_D0
-#define b ARD_D1
-#define c ARD_D2
-#define d ARD_D3
-#define e ARD_D4
-#define f ARD_D5
-#define g ARD_D6
-
 // gpio 입출력 설정 함수
 void set_gpio(gpio_t *GPIO, int _mode);
 // 출력 포트 bsrr 함수

@@ -22,8 +22,6 @@ int main(){
     	outSignal(&l[i],1);
     }
 
-
-
     while (1) {
         // 인터럽트 발생안했을 때 지속적으로 수행할 동작코드
         for(int i=0; i<4; i++){ outSignal(&l[i],0); }
