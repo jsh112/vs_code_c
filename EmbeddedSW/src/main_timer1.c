@@ -4,12 +4,16 @@
 
 int main(){
     hwInit();
-
-    // Enable RCC APB2ENR, TIM1EN enable
-    *((V_UINT32*)(APB2ENR)) |= 0x01;
     led_t l[4] = {led1,led2,led3,led4};
 
+    // Enable RCC APB2ENR, TIM1EN enable
+
+    *((V_UINT32*)(APB2ENR)) |= 0x01;
+
+    *((V_UINT32*)(TIM1 + PSC)) &= 0; // TIM1 Prescaler
     *((V_UINT32*)(TIM1 + PSC)) |= 21600 * 5 - 1; // TIM1 Prescaler
+
+    *((V_UINT32*)(TIM1 + ARR)) &= 0;
     *((V_UINT32*)(TIM1 + ARR)) |= 9999;
     *((V_UINT32*)(TIM1 + DIER)) |= 0x01;  // update interrupt enabled
     *((V_UINT32*)(TIM1 + CR1)) |= 0x01;   // TIM1 CR1 CEN enable

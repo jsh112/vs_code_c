@@ -36,6 +36,28 @@ void outSignal(led_t* led, unsigned int signal){
     userLedInit, outSignal is in led_switch.h
 */
 
+void EnableTIM1(void){
+    // RCC_APB2ENR -> SYSCFG Clock Enable
+    *((V_UINT32 *)(APB2ENR)) |= 0x01;
 
+    // Initialize TIM1 Prescaler
+    *((V_UINT32*)(TIM1 + PSC)) &= 0;
+    // Initialize TIM1 ARR
+    *((V_UINT32*)(TIM1 + ARR)) &= 0;
+    // TIM1 DIER UIE enable
+    *((V_UINT32*)(TIM1 + DIER)) |= 0x01;
+    // TIM1 CR1 CEN enable
+    *((V_UINT32*)(TIM1 + CR1)) |= 0x01;
+    // TIM1 SR UIF clear
+    *((V_UINT32*)(TIM1 + SR)) &= 0x01;
+    // 25, NVIC ISER
+    *((V_UINT32*)(0xE000E100 + (25 / 32) * 4)) = (1 << (25 % 32));
+}
 
+void EnableTIM9(void){
+    // RCC_APB2ENR -> SYSCFG Clock Enable
+    *((V_UINT32 *)(APB2ENR)) |= (0x01 << 16);
+
+    
+}
 #endif /* SRC_TIMER_INTERRUPT_H_ */
