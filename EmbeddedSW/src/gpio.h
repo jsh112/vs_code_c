@@ -34,6 +34,7 @@ void ControlLED(unsigned char No, unsigned char status);
 #define SYSCFG 0x40013800U
 #define EXTI 0x40013C00U
 #define TIM1 0x40010000U
+#define TIM9 0x40014000U
 
 // Interrupt offset
 #define IMR 0x00U
