@@ -83,7 +83,7 @@ int BtnCheck()
 
 int prob_1(unsigned int mode)
 {
-		int cnt = 0;
+	int cnt = 0;
     unsigned int Timer1 = 0;
     if (mode == 1){
 
