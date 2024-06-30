@@ -7,9 +7,10 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/jshkr/vs_code_c/baekjoon",
-      "program": "c:/Users/jshkr/vs_code_c/baekjoon/build/Debug/outDebug",
+      "externalConsole": false,
+      "internalConsoleOptions": "openOnSessionStart", // 디버깅 세션 시작 시 내부 콘솔 열기
+      "cwd": "${fileDirname}",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
@@ -18,7 +19,8 @@
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ]
+      ],
+      "preLaunchTask": "gcc.exe build activity file"
     }
   ]
 }
