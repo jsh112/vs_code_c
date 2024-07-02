@@ -58,7 +58,8 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "stdio.h": "c",
-    "10872.C": "cpp"
+    "10872.C": "cpp",
+    "9498.C": "cpp"
   },
   "code-runner.runInTerminal": true
 }
