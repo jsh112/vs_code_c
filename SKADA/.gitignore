@@ -1,0 +1,9 @@
+# 데이터 파일, 사진
+*.csv
+*.png
+
+# Vs code 설정파일
+.vscode/
+
+# Python
+__pycache__/
