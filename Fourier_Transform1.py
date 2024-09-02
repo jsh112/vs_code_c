@@ -11,7 +11,6 @@ f = 1
 
 # Define the coefficient function b
 
-
 def b(n, l):
     coeff = 2 / l * sp.integrate(f * sp.sin(n * sp.pi * x / l), (x, 0, 1))
     return coeff
