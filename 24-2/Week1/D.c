@@ -30,7 +30,6 @@ const int N = 6;
 
 int main()
 {
-
     unsigned int matrix[N][N];
     for (int i = 0; i < N; i++)
     {
