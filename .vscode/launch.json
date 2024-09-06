@@ -74,6 +74,10 @@
               "/C",
               "${fileDirname}\\${fileBasenameNoExtension}"
           ]
+      },
+      {
+        "description": "Fix pretty-printing for gdb",
+        "text": "set charset UTF-8"
       }
   ]
 }
