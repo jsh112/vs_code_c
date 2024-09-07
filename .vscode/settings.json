@@ -64,7 +64,9 @@
     "timer_interrupt.h": "c",
     "led_switch.h": "c",
     "limits": "c",
-    "complex": "cpp"
+    "complex": "cpp",
+    "string.h": "c",
+    "cstring": "c"
   },
   "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
