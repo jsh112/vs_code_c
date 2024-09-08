@@ -13,6 +13,8 @@
 // 출력 예시
 // 10
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 int main()

@@ -22,6 +22,8 @@
 // 출력 예시
 // 32 8 4 1
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 int main()

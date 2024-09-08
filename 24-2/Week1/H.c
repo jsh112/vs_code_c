@@ -17,6 +17,8 @@
 // 출력 예시
 // C
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 int main()

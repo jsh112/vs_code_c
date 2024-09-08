@@ -28,6 +28,8 @@
 // 3:1
 // 100:1
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 // num1은 A_i index에 몇개가 들어가있는지 체크

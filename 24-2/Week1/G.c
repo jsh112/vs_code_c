@@ -25,6 +25,8 @@
 
 // 띄어쓰기로 구분하여 차례대로 출력하시오.
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 int main()

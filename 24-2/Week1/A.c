@@ -25,6 +25,8 @@
 // 출력 예시
 // 5 7 2 6 9
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 int main()

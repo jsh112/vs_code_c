@@ -24,6 +24,8 @@
 // 힌트2:
 // 문자열의 끝에 NULL 문자가 있어야 %s로 출력할 수 있다.
 
+// ACCEPTED CODE
+
 #include <stdio.h>
 
 int my_strlen(const char *str);
