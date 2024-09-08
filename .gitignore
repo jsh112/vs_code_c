@@ -1,2 +1,7 @@
 .vscode/
 *.exe
+*.log
+*.fls
+*.fdb_latexmk
+*.aux
+*.gz
