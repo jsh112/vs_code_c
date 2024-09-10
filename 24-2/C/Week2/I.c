@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main()
+{
+
+    const int n = 6;
+    unsigned int matrix[n][n];
+
+    // (0,0) (0,5) (1,1) (1,4)
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%u", &matrix[i][j]);
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if ((i == j) || ((i + j) == 5))
+            {
+                printf("  ");
+            }
+            else
+            {
+                printf("%u ", matrix[i][j]);
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
