@@ -68,5 +68,13 @@
     "string.h": "c",
     "cstring": "c"
   },
+  "files.exclude": {
+  "**/*.fls": true,
+  "**/*.aux": true,
+  "**/*.exe": true,
+  "**/*.fdb_latexmk": true,
+  "**/*.gz": true,
+  "**/*.log": true,
+  },
   "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
