@@ -19,7 +19,7 @@ int main()
     printf("address of i[0] : %d\n", (char *)a[0] - (char *)&a);
     printf("address of i[1] : %d\n", (char *)a[1] - (char *)&a);
 
-    printf("address of i[0][0] : %d\n", (char *)a[0][0] - (char *)&a);
+    printf("address of i[0][0] : %d\n", (char *)a[0][0] - (int *)&a);
     printf("address of i[0][1] : %d\n", (char *)a[0][1] - (char *)&a);
     printf("address of i[1][0] : %d\n", (char *)a[1][0] - (char *)&a);
     printf("address of i[1][1] : %d\n", (char *)a[1][1] - (char *)&a);
