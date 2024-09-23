@@ -10,28 +10,49 @@ char *solution(const char *code)
         len++;
     }
     char *answer = (char *)malloc(sizeof(char) * (len / 2 + 1));
-    for (int i = 0; i < len; i++)
+    const char *ptr = code;
+    // for (int i = 0; i < len; i++)
+    // {
+    //     if (code[i] == '1')
+    //     {
+    //         mode = !mode;
+    //         continue;
+    //     }
+    //     if (mode == 0)
+    //     {
+    //         if (i % 2 == 0)
+    //         {
+    //             answer[iter++] = code[i];
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if (i % 2 != 0)
+    //         {
+    //             answer[iter++] = code[i];
+    //         }
+    //     }
+    // }
+
+    while (*ptr != '\0')
     {
-        if (code[i] == '1')
+        if (*ptr == '1')
         {
             mode = !mode;
+            ptr++;
             continue;
         }
-        if (mode == 0)
+        if ((ptr - code) % 2 == 0 && mode == 0)
         {
-            if (i % 2 == 0)
-            {
-                answer[iter++] = code[i];
-            }
+            answer[iter++] = *ptr;
         }
-        else
+        else if ((ptr - code) % 2 != 0 && mode == 1)
         {
-            if (i % 2 != 0)
-            {
-                answer[iter++] = code[i];
-            }
+            answer[iter++] = *ptr;
         }
+        ptr++;
     }
+
     answer[iter] = '\0';
     if (iter == 0)
     {
