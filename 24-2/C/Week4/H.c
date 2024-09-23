@@ -17,7 +17,7 @@ int main()
     {
         if (a[j] <= t)
         {
-            printf("%d ", q);
+            printf("0 ");
         }
         else
         {
