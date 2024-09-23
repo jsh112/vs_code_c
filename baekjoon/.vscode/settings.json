@@ -59,7 +59,8 @@
   "files.associations": {
     "stdio.h": "c",
     "10872.C": "cpp",
-    "9498.C": "cpp"
+    "9498.C": "cpp",
+    "stdbool.h": "c"
   },
   "code-runner.runInTerminal": true
 }

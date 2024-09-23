@@ -69,12 +69,12 @@
     "cstring": "c"
   },
   "files.exclude": {
-  "**/*.fls": true,
-  "**/*.aux": true,
-  "**/*.exe": true,
-  "**/*.fdb_latexmk": true,
-  "**/*.gz": true,
-  "**/*.log": true,
+    "**/*.fls": true,
+    "**/*.aux": true,
+    "**/*.fdb_latexmk": true,
+    "**/*.gz": true,
+    "**/*.log": true,
+    "**/*.exe": true
   },
   "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

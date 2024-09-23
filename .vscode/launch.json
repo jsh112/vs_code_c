@@ -45,6 +45,17 @@
               "-o",
               "${fileDirname}/${fileBasenameNoExtension}"
           ],
+        "setupCommands": [
+        {
+        "description": "Enable pretty-printing for gdb",
+        "text": "-enable-pretty-printing",
+        "ignoreFailures": true
+        },
+        {
+        "description": "Fix pretty-printing for gdb",
+        "text": "set charset UTF-8"
+        }
+  ],
           "group": "build",
           //컴파일시 에러를 편집기에 반영
           //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
