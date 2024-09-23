@@ -22,17 +22,25 @@ int solution(const char *n_str)
         len++;
         ptr++;
     }
-    int answer = 0, d, i = power(len);
+    int answer = 0, i = power(len);
     while (*n_str != '\0')
     {
-        d = *n_str - '0';
-        answer += d * i;
+        answer += (*n_str - '0') * i;
         i /= 10;
         n_str++;
     }
 
     return answer;
 }
+
+// int solution(const char* n_str) {
+//     int answer = 0;
+//     char* ptr = n_str - 1;
+//     while(*++ptr) {
+//         answer = 10 * answer + *ptr - '0';
+//     }
+//     return answer;
+// }
 
 int main()
 {
