@@ -6,3 +6,7 @@
 *.aux
 *.gz
 .cph
+c_cpp_properties.json
+launch.json
+settings.json
+tasks.json
