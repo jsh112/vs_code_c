@@ -60,7 +60,8 @@
     "stdio.h": "c",
     "10872.C": "cpp",
     "9498.C": "cpp",
-    "stdbool.h": "c"
+    "stdbool.h": "c",
+    "iostream": "cpp"
   },
   "code-runner.runInTerminal": true
 }
