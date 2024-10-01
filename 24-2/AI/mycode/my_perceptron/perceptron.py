@@ -39,9 +39,9 @@ class Perceptron:
         plt.xlim(-1, 2)
         plt.ylim(-1, 2)
         plt.title(
-            f'Line : y = {-(self.weights[0]/self.weights[1])}*x + {self.bias / self.weights[1]}')
+            f'Line : x2 = {-(self.weights[0]/self.weights[1])}*x + {self.bias / self.weights[1]}')
         plt.xlabel('x1')
-        plt.ylabel('y1')
+        plt.ylabel('x2')
         plt.legend()
         plt.grid()
         plt.show()
