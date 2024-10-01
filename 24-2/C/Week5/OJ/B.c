@@ -5,7 +5,7 @@ int main()
 
     unsigned int a;
     // 0x0 <= A < 0x100
-    // %X가 4바이트를 읽어옴s
+    // %X가 4바이트를 읽어옴
     scanf("%X", &a);
     for (int i = 7; i >= 4; i--)
     {
