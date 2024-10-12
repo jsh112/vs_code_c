@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+char L[100], str[100];
+
 int my_strlen(const char *s)
 {
     const char *tmp = s;
@@ -25,37 +27,37 @@ char *my_strcpy(char *s1, const char *s2)
 
 void ant(char *L, char *str, unsigned int n)
 {
-    int d, cnt;
-    for (int i = 2; i <= n; i++)
+    for (unsigned int i = 2; i <= n; i++)
     {
-        d = 0;
-        cnt = 0;
-        int len = my_strlen(L);
-        for (int idx = 0; idx < len; idx++)
+        int idx_str = 0;
+        int len = my_strlen(L); // L의 길이
+        for (int L_idx = 0; L_idx < len; L_idx++)
         {
-            if ((idx < (len - 1)) && (L[idx] == L[idx + 1]))
+            char current_char = L[L_idx];
+            int count = 1;
+
+            while (L_idx + 1 < len && L[L_idx + 1] == current_char)
             {
-                cnt++;
+                count++;
+                L_idx++;
             }
-            if ((idx < (len - 1)) && (L[idx] != L[idx + 1]))
-            {
-                str[d++] = L[idx];
-                str[d++] = cnt + '0';
-                cnt = 0;
-            }
+
+            // str에 결과 추가
+            str[idx_str++] = current_char;
+            str[idx_str++] = count + '0';
         }
+        str[idx_str] = '\0';
         my_strcpy(L, str);
-        printf("%s\n", str);
+        printf("%s\n", L);
     }
 }
 
 int main()
 {
-    char L[100], str[100];
     unsigned int i;
     int cnt, num;
     scanf("%s %u", L, &i);
     printf("%s\n", L);
-    ant(L, str, i - 1);
+    ant(L, str, i);
     return 0;
 }
