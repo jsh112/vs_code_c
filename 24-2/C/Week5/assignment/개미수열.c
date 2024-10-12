@@ -30,7 +30,7 @@ void ant(char *L, char *str, unsigned int n)
     for (unsigned int i = 2; i <= n; i++)
     {
         int idx_str = 0;
-        int len = my_strlen(L); // L의 길이
+        int len = my_strlen(L);
         for (int L_idx = 0; L_idx < len; L_idx++)
         {
             char current_char = L[L_idx];
