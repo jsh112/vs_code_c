@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{Week6_Assignments}
+
+\begin{document}
+\section*{Problem A.}
+% checkBytes 함수 의사코드
+\begin{algorithm}
+\textbf{checkBytes Function Pseudo Code}  % 수동으로 제목을 설정
+\begin{algorithmic}[1]
+\Function{unsigned char* checkBytes}{numPtr, order}
+    \State \textbf{return} (unsigned char*) numPtr + order
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{10pt}
+
+% main 함수 의사코드
+\begin{algorithm}
+\textbf{Main Function Pseudo Code}  % 수동으로 제목을 설정
+\begin{algorithmic}[1]
+\State Declare num as unsigned int
+\State Read hexadecimal value into num from user input
+\For{$i = 3$ \textbf{to} $0$ \textbf{step} $-1$}  \\
+\Comment{Loop from the most significant byte to the least significant byte}
+    \State Call \textbf{checkBytes} with \&num and $i$
+    \State Store the returned unsigned char pointer in ptr
+    \State Print the value pointed by ptr in hexadecimal format
+\EndFor
+\State \textbf{return} 0 \Comment{End program}
+\end{algorithmic}
+\end{algorithm}
+
+\section*{Problem B.}
+% checkBytes 함수 의사코드
+\begin{algorithm}
+\textbf{checkBytes Function Pseudo Code}  % 수동으로 제목을 설정
+\begin{algorithmic}[1]
+\Function{unsigned char* checkBytes}{numPtr, order}
+    \State \textbf{return} (unsigned char*) numPtr + order
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+% main 함수 의사코드
+\begin{algorithm}
+\textbf{Main Function Pseudo Code}  % 수동으로 제목을 설정
+\begin{algorithmic}[1]
+\State Declare num as unsigned int
+\State Read hexadecimal value into num from user input
+\For{$i = 3$ \textbf{to} $0$ \textbf{step} $-1$}  \\
+\Comment{Loop from the most significant byte to the least significant byte}
+    \State Call \textbf{checkBytes} with \&num and $i$
+    \State Store the returned unsigned char pointer in ptr
+    \State Print the value pointed by ptr in hexadecimal format
+\EndFor
+\State \textbf{return} 0 \Comment{End program}
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

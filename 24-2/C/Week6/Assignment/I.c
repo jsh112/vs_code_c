@@ -3,9 +3,9 @@
 int main()
 {
 
-    char type[100];
+    char type[100], name[100];
     int size, I;
-    scanf("%s arr[%d];", type, &size);
+    scanf("%s %s [%d];", type, name, &size);
     scanf("%d", &I);
 
     if (type[0] == 'i')
