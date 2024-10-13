@@ -8,6 +8,7 @@ int main()
     scanf("%s %s [%d];", type, name, &size);
     scanf("%d", &I);
 
+    // hi
     if (type[0] == 'i')
     {
         printf("%X", 0x1000 + sizeof(int) * size * I);
