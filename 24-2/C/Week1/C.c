@@ -23,7 +23,7 @@ int main()
     unsigned int N;
     scanf("%u", &N);
 
-    printf("%u\n", N & 0xFFFFFFFE);
+    printf("%u\n", (N >> 1) << 1);
 
     return 0;
 }

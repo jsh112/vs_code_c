@@ -33,9 +33,7 @@
 #include <stdio.h>
 
 // num1은 A_i index에 몇개가 들어가있는지 체크
-int num1[101] = {
-    0,
-};
+int num1[101];
 
 int main()
 {

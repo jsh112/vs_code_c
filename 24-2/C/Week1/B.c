@@ -29,14 +29,6 @@
 // 1900년대 태어난 외국인 남자: 5 / 여자: 6
 // 2000년대 태어난 외국인 남자: 7 / 여자: 8
 
-#include <stdio.h>
-
-int main()
-{
-
-    return 0;
-}
-
 // ACCEPTED CODE
 #include <stdio.h>
 
@@ -47,11 +39,17 @@ int main()
     const int std_month = 9;
     const int std_day = 3;
 
+    char num_str[14];
     int num[13], adult = 0;
     // 주민등록번호 입력
     for (int i = 0; i < 13; i++)
     {
-        scanf("%1d", &num[i]);
+        scanf("%s", num_str);
+    }
+
+    for (int i = 0; i < 13; i++)
+    {
+        num[i] = num_str[i] - '0';
     }
 
     // 1. 7번째 자리가 3, 4, 7, 8이 아니면 모두 성인

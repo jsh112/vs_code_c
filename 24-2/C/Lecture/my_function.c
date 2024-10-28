@@ -15,11 +15,9 @@
  * @param s Pointer to the input string.
  * @return The length of the string.
  */
-size_t my_strlen(const char *s)
-{
+size_t my_strlen(const char *s) {
     const char *tmp = s;
-    while (*tmp)
-    {
+    while (*tmp) {
         tmp++;
     }
     return tmp - s;
@@ -36,25 +34,22 @@ size_t my_strlen(const char *s)
  * @param s Pointer to the input string representing the integer.
  * @return The integer value represented by the string.
  */
-int my_atoi(const char *s)
-{
+int my_atoi(const char *s) {
     int num = 0, sign = 1;
 
     // Skip leading whitespace
-    while (*s == ' ')
-    {
+    while (*s == ' ') {
         s++;
     }
 
     // Check for a negative sign
-    if (*s == '-')
-    {
+    if (*s == '-') {
         sign = -1;
-        s++; // Move to the next character
+        s++;  // Move to the next character
     }
 
     // Convert string to integer
-    while (*s >= '0' && *s <= '9') // Fixed condition: changed 's' to '*s'
+    while (*s >= '0' && *s <= '9')  // Fixed condition: changed 's' to '*s'
     {
         num = num * 10 + (*s - '0');
         s++;
@@ -74,15 +69,13 @@ int my_atoi(const char *s)
  * @param src Pointer to the source string to be copied.
  * @return Pointer to the destination string (original `dest`).
  */
-char *my_strcpy(char *dest, const char *src)
-{
+char *my_strcpy(char *dest, const char *src) {
     char *tmp = dest;
-    while (*src)
-    {
+    while (*src) {
         *dest++ = *src++;
     }
-    *dest = '\0'; // Null-terminate the destination string
-    return tmp;   // Return the original destination address
+    *dest = '\0';  // Null-terminate the destination string
+    return tmp;    // Return the original destination address
 }
 
 /**
@@ -98,18 +91,15 @@ char *my_strcpy(char *dest, const char *src)
  * @return     Pointer to the destination string (original `dest`).
  */
 
-char *my_strncpy(char *dest, const char *src, size_t n)
-{
+char *my_strncpy(char *dest, const char *src, size_t n) {
     char *origin = dest;
-    while (n > 0 && *src)
-    {
+    while (n > 0 && *src) {
         *dest = *src;
         dest++;
         src++;
         n--;
     }
-    while (n > 0)
-    {
+    while (n > 0) {
         *dest = '\0';
         dest++;
         n--;
@@ -137,25 +127,20 @@ char *my_strncpy(char *dest, const char *src, size_t n)
  * s1 is considered less.
  */
 
-int my_strcmp(const char *s1, const char *s2)
-{
-    while (*s1 && *s2) // Continue until the end of either string
+int my_strcmp(const char *s1, const char *s2) {
+    while (*s1 && *s2)  // Continue until the end of either string
     {
-        if (*s1 != *s2) // If characters are different
+        if (*s1 != *s2)  // If characters are different
         {
-            return *s1 - *s2; // Return the difference between the characters
+            return *s1 - *s2;  // Return the difference between the characters
         }
         s1++;
         s2++;
     }
 
     // If one string has ended, return the difference between them
-    return *s1 - *s2; // This will be zero if both strings ended simultaneously
+    return *s1 - *s2;  // This will be zero if both strings ended simultaneously
 }
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
 
 /**
  * @brief Sets a block of memory to a specified value.
@@ -176,37 +161,52 @@ int my_strcmp(const char *s1, const char *s2)
  * @warning Using `memset` on memory that has been freed or is not allocated
  *          can lead to undefined behavior.
  */
-void *my_memset(void *ptr, int value, size_t n)
-{
+void *my_memset(void *ptr, int value, size_t n) {
     unsigned char *p = ptr;
-    while (n--)
-    {
+    while (n--) {
         *p++ = (unsigned char)value;
     }
     return ptr;
 }
 
-// void *memcpy(void *dest, const void *src, size_t n);
-// void *memmove(void *dest, const void *src, size_t n);
-// int memcmp(const void *s1, const void *s2, size_t n);
-// -------------------------------------------------------------------
+/**
+ * @brief Parses an array declaration and extracts the data type, array name, and dimensions.
+ * 
+ * This function reads an array declaration from standard input, such as "int arr[5][6][7];",
+ * and extracts the data type ("int"), the array name ("arr"), and the dimensions (5, 6, 7).
+ * The dimensions are stored in the provided array `arr_dim`.
+ * 
+ * @param type Pointer to a character array where the data type will be stored.
+ * @param name Pointer to a character array where the array name will be stored.
+ * @param arr_dim Pointer to an integer array where the dimensions will be stored.
+ */
 
-// char *strcat(char *dest, const char *src);
-// char *strncat(char *dest, const char *src, size_t n);
-// char *strchr(const char *s, int c);
-// char *strrchr(const char *s, int c);
-// char *strstr(const char *haystack, const char *needle);
-// char *strtok(char *str, const char *delim);
-// size_t strspn(const char *s, const char *accept);
-// size_t strcspn(const char *s, const char *reject);
-// char *strpbrk(const char *s, const char *accept);
+void input_array(char *type, char *name, int *arr_dim) {
+    // use for getchar()
+    char c;
+    int idx_dim = 0;
+    // store data type string and name string
+    scanf("%s %[^[]", type, name);
+
+    while ((c = getchar()) != ';') {
+        // meet the left bracket
+        if (c == '[') {
+            int dim = 0;
+            while ((c = getchar()) >= '0' && c <= '9') {
+                dim = 10 * dim + (c - '0');
+            }
+            arr_dim[idx_dim++] = dim;
+        }
+    }
+}
 
 // hi
-int main()
-{
-    char a[100] = "Hello";
-    const char *b = "abcdefghijk";
+int main() {
+    char type[50], arr_name[50], c;
+    int dim[10] = {0};
+    int num_dims = 0;
 
-    printf("%s\n", my_strcpy(a, b));
+    input_array(type, arr_name, dim);
+
     return 0;
 }
