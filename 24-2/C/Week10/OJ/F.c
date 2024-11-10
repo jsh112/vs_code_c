@@ -12,8 +12,8 @@ int main() {
         scanf("%u", &arr[i]);
     }
 
-    for (int i = N - 1; i >= 0; i--) {
-        printf("%u ", arr[i]);
+    for (int i = N; i > 0; i--) {
+        printf("%u ", arr[i - 1]);
     }
 
     free(arr);

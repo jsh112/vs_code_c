@@ -7,9 +7,8 @@ int main() {
     int cnt = 0;
     int arr[8] = {0};
     for (int i = 0; i < 7; i++) {
-        if ((a & (0x01 << i)) != (0x01 << i))
-            arr[i] = 1;
-        else
+        unsigned int num = a & (0x01 << i);
+        if (num)
             cnt++;
     }
 
