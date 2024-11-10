@@ -1,13 +1,6 @@
 #include <stdio.h>
 
-int main() {
-    int sz;
-    scanf("%d", &sz);
-    unsigned int arr[sz];
-    for (int i = 0; i < sz; i++) {
-        scanf("%u", &arr[i]);
-    }
-
+void insertion_sort(int* arr, int sz) {
     for (int i = 1; i < sz; i++) {
         int key = arr[i];
         int j = i - 1;
@@ -21,6 +14,17 @@ int main() {
         }
         printf("\n");
     }
+}
+
+int main() {
+    int sz;
+    scanf("%d", &sz);
+    unsigned int arr[sz];
+    for (int i = 0; i < sz; i++) {
+        scanf("%u", &arr[i]);
+    }
+
+    insertion_sort(arr, sz);
 
     return 0;
 }

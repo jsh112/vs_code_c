@@ -17,7 +17,7 @@ void my_strstr(const char* s, const char* t) {
                 tmp_t++;
             }
 
-            if (*tmp_t == '\0') {
+            if (!*tmp_t) {
                 printf("%s\n", s);
                 return;
             }
