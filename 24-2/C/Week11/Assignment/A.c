@@ -2,20 +2,20 @@
 #include <stdio.h>
 
 // 이 위로 수정 금지
-void string_ptr_swap(char **s1, char **s2) {
-    char *tmp;
-    tmp = *s1;
-    *s1 = *s2;
-    *s2 = tmp;
+void string_ptr_swap(char **p1, char **p2) {
+    char *p;
+    p = *p1;
+    *p1 = *p2;
+    *p2 = p;
 }
 
-void real_string_swap(char *s1, char *s2) {
-    while (*s1 || *s2) {
-        char c = *s1;
-        *s1 = *s2;
-        *s2 = c;
-        s1++;
-        s2++;
+void real_string_swap(char *p2, char *p3) {
+    while (*p2 || *p3) {
+        char c = *p2;
+        *p2 = *p3;
+        *p3 = c;
+        p2++;
+        p3++;
     }
 }
 // 이 아래로 수정 금지
