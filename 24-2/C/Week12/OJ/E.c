@@ -15,7 +15,7 @@ int main() {
     for (int i = 3; i >= 0; i--) {
         for (int j = 0; j < 8; j++) {
             int mask = 0x01 << j;
-            if(arr[i] & mask){
+            if (arr[i] & mask) {
                 ans[7 - i] |= (0x01 << (7 - j));
             }
         }
